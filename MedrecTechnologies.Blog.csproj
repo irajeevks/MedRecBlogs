@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props" Condition="Exists('packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D61122B-296A-4889-8848-69E505D51E27}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedrecTechnologies.Blog</RootNamespace>
+    <AssemblyName>MedrecTechnologies.Blog</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Stripe.net, Version=29.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Stripe.net.29.1.0\lib\net45\Stripe.net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".user.ini" />
+    <Content Include="blogcontent\Auto\Global.css" />
+    <Content Include="blogcontent\fonts\fontawesome-webfont.svg" />
+    <Content Include="blogcontent\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="blogcontent\images\blog\actions\action-delete-small-lt.png" />
+    <Content Include="blogcontent\images\blog\actions\action-delete-small.png" />
+    <Content Include="blogcontent\images\blog\actions\action-edit-small-lt.png" />
+    <Content Include="blogcontent\images\blog\actions\action-edit-small.png" />
+    <Content Include="blogcontent\images\blog\actions\action-tools-small-lt.png" />
+    <Content Include="blogcontent\images\blog\actions\action-tools-small.png" />
+    <Content Include="blogcontent\images\blog\ajax-loader.gif" />
+    <Content Include="blogcontent\images\blog\apml.png" />
+    <Content Include="blogcontent\images\blog\avatars\blank.png" />
+    <Content Include="blogcontent\images\blog\avatars\identicon.png" />
+    <Content Include="blogcontent\images\blog\avatars\mm.png" />
+    <Content Include="blogcontent\images\blog\avatars\monsterid.png" />
+    <Content Include="blogcontent\images\blog\avatars\noavatar.png" />
+    <Content Include="blogcontent\images\blog\avatars\retro.png" />
+    <Content Include="blogcontent\images\blog\avatars\wavatar.png" />
+    <Content Include="blogcontent\images\blog\benTag24.png" />
+    <Content Include="blogcontent\images\blog\blogengine.ico" />
+    <Content Include="blogcontent\images\blog\ext.png" />
+    <Content Include="blogcontent\images\blog\flags\ad.png" />
+    <Content Include="blogcontent\images\blog\flags\ae.png" />
+    <Content Include="blogcontent\images\blog\flags\af.png" />
+    <Content Include="blogcontent\images\blog\flags\ag.png" />
+    <Content Include="blogcontent\images\blog\flags\ai.png" />
+    <Content Include="blogcontent\images\blog\flags\al.png" />
+    <Content Include="blogcontent\images\blog\flags\am.png" />
+    <Content Include="blogcontent\images\blog\flags\an.png" />
+    <Content Include="blogcontent\images\blog\flags\ao.png" />
+    <Content Include="blogcontent\images\blog\flags\ar.png" />
+    <Content Include="blogcontent\images\blog\flags\as.png" />
+    <Content Include="blogcontent\images\blog\flags\at.png" />
+    <Content Include="blogcontent\images\blog\flags\au.png" />
+    <Content Include="blogcontent\images\blog\flags\aw.png" />
+    <Content Include="blogcontent\images\blog\flags\ax.png" />
+    <Content Include="blogcontent\images\blog\flags\az.png" />
+    <Content Include="blogcontent\images\blog\flags\ba.png" />
+    <Content Include="blogcontent\images\blog\flags\bb.png" />
+    <Content Include="blogcontent\images\blog\flags\bd.png" />
+    <Content Include="blogcontent\images\blog\flags\be.png" />
+    <Content Include="blogcontent\images\blog\flags\bf.png" />
+    <Content Include="blogcontent\images\blog\flags\bg.png" />
+    <Content Include="blogcontent\images\blog\flags\bh.png" />
+    <Content Include="blogcontent\images\blog\flags\bi.png" />
+    <Content Include="blogcontent\images\blog\flags\bj.png" />
+    <Content Include="blogcontent\images\blog\flags\bm.png" />
+    <Content Include="blogcontent\images\blog\flags\bn.png" />
+    <Content Include="blogcontent\images\blog\flags\bo.png" />
+    <Content Include="blogcontent\images\blog\flags\br.png" />
+    <Content Include="blogcontent\images\blog\flags\bs.png" />
+    <Content Include="blogcontent\images\blog\flags\bt.png" />
+    <Content Include="blogcontent\images\blog\flags\bv.png" />
+    <Content Include="blogcontent\images\blog\flags\bw.png" />
+    <Content Include="blogcontent\images\blog\flags\by.png" />
+    <Content Include="blogcontent\images\blog\flags\bz.png" />
+    <Content Include="blogcontent\images\blog\flags\ca.png" />
+    <Content Include="blogcontent\images\blog\flags\cc.png" />
+    <Content Include="blogcontent\images\blog\flags\cd.png" />
+    <Content Include="blogcontent\images\blog\flags\cf.png" />
+    <Content Include="blogcontent\images\blog\flags\cg.png" />
+    <Content Include="blogcontent\images\blog\flags\ch.png" />
+    <Content Include="blogcontent\images\blog\flags\ci.png" />
+    <Content Include="blogcontent\images\blog\flags\ck.png" />
+    <Content Include="blogcontent\images\blog\flags\cl.png" />
+    <Content Include="blogcontent\images\blog\flags\cm.png" />
+    <Content Include="blogcontent\images\blog\flags\cn.png" />
+    <Content Include="blogcontent\images\blog\flags\co.png" />
+    <Content Include="blogcontent\images\blog\flags\cr.png" />
+    <Content Include="blogcontent\images\blog\flags\cs.png" />
+    <Content Include="blogcontent\images\blog\flags\cu.png" />
+    <Content Include="blogcontent\images\blog\flags\cv.png" />
+    <Content Include="blogcontent\images\blog\flags\cx.png" />
+    <Content Include="blogcontent\images\blog\flags\cy.png" />
+    <Content Include="blogcontent\images\blog\flags\cz.png" />
+    <Content Include="blogcontent\images\blog\flags\de.png" />
+    <Content Include="blogcontent\images\blog\flags\dj.png" />
+    <Content Include="blogcontent\images\blog\flags\dk.png" />
+    <Content Include="blogcontent\images\blog\flags\dm.png" />
+    <Content Include="blogcontent\images\blog\flags\do.png" />
+    <Content Include="blogcontent\images\blog\flags\dz.png" />
+    <Content Include="blogcontent\images\blog\flags\ec.png" />
+    <Content Include="blogcontent\images\blog\flags\ee.png" />
+    <Content Include="blogcontent\images\blog\flags\eg.png" />
+    <Content Include="blogcontent\images\blog\flags\eh.png" />
+    <Content Include="blogcontent\images\blog\flags\er.png" />
+    <Content Include="blogcontent\images\blog\flags\es.png" />
+    <Content Include="blogcontent\images\blog\flags\et.png" />
+    <Content Include="blogcontent\images\blog\flags\fam.png" />
+    <Content Include="blogcontent\images\blog\flags\fi.png" />
+    <Content Include="blogcontent\images\blog\flags\fj.png" />
+    <Content Include="blogcontent\images\blog\flags\fk.png" />
+    <Content Include="blogcontent\images\blog\flags\fm.png" />
+    <Content Include="blogcontent\images\blog\flags\fo.png" />
+    <Content Include="blogcontent\images\blog\flags\fr.png" />
+    <Content Include="blogcontent\images\blog\flags\ga.png" />
+    <Content Include="blogcontent\images\blog\flags\gb.png" />
+    <Content Include="blogcontent\images\blog\flags\gd.png" />
+    <Content Include="blogcontent\images\blog\flags\ge.png" />
+    <Content Include="blogcontent\images\blog\flags\gf.png" />
+    <Content Include="blogcontent\images\blog\flags\gh.png" />
+    <Content Include="blogcontent\images\blog\flags\gi.png" />
+    <Content Include="blogcontent\images\blog\flags\gl.png" />
+    <Content Include="blogcontent\images\blog\flags\gm.png" />
+    <Content Include="blogcontent\images\blog\flags\gn.png" />
+    <Content Include="blogcontent\images\blog\flags\gp.png" />
+    <Content Include="blogcontent\images\blog\flags\gq.png" />
+    <Content Include="blogcontent\images\blog\flags\gr.png" />
+    <Content Include="blogcontent\images\blog\flags\gs.png" />
+    <Content Include="blogcontent\images\blog\flags\gt.png" />
+    <Content Include="blogcontent\images\blog\flags\gu.png" />
+    <Content Include="blogcontent\images\blog\flags\gw.png" />
+    <Content Include="blogcontent\images\blog\flags\gy.png" />
+    <Content Include="blogcontent\images\blog\flags\hk.png" />
+    <Content Include="blogcontent\images\blog\flags\hm.png" />
+    <Content Include="blogcontent\images\blog\flags\hn.png" />
+    <Content Include="blogcontent\images\blog\flags\hr.png" />
+    <Content Include="blogcontent\images\blog\flags\ht.png" />
+    <Content Include="blogcontent\images\blog\flags\hu.png" />
+    <Content Include="blogcontent\images\blog\flags\id.png" />
+    <Content Include="blogcontent\images\blog\flags\ie.png" />
+    <Content Include="blogcontent\images\blog\flags\il.png" />
+    <Content Include="blogcontent\images\blog\flags\in.png" />
+    <Content Include="blogcontent\images\blog\flags\io.png" />
+    <Content Include="blogcontent\images\blog\flags\iq.png" />
+    <Content Include="blogcontent\images\blog\flags\ir.png" />
+    <Content Include="blogcontent\images\blog\flags\is.png" />
+    <Content Include="blogcontent\images\blog\flags\it.png" />
+    <Content Include="blogcontent\images\blog\flags\jm.png" />
+    <Content Include="blogcontent\images\blog\flags\jo.png" />
+    <Content Include="blogcontent\images\blog\flags\jp.png" />
+    <Content Include="blogcontent\images\blog\flags\ke.png" />
+    <Content Include="blogcontent\images\blog\flags\kg.png" />
+    <Content Include="blogcontent\images\blog\flags\kh.png" />
+    <Content Include="blogcontent\images\blog\flags\ki.png" />
+    <Content Include="blogcontent\images\blog\flags\km.png" />
+    <Content Include="blogcontent\images\blog\flags\kn.png" />
+    <Content Include="blogcontent\images\blog\flags\kp.png" />
+    <Content Include="blogcontent\images\blog\flags\kr.png" />
+    <Content Include="blogcontent\images\blog\flags\kw.png" />
+    <Content Include="blogcontent\images\blog\flags\ky.png" />
+    <Content Include="blogcontent\images\blog\flags\kz.png" />
+    <Content Include="blogcontent\images\blog\flags\la.png" />
+    <Content Include="blogcontent\images\blog\flags\lb.png" />
+    <Content Include="blogcontent\images\blog\flags\lc.png" />
+    <Content Include="blogcontent\images\blog\flags\li.png" />
+    <Content Include="blogcontent\images\blog\flags\lk.png" />
+    <Content Include="blogcontent\images\blog\flags\lr.png" />
+    <Content Include="blogcontent\images\blog\flags\ls.png" />
+    <Content Include="blogcontent\images\blog\flags\lt.png" />
+    <Content Include="blogcontent\images\blog\flags\lu.png" />
+    <Content Include="blogcontent\images\blog\flags\lv.png" />
+    <Content Include="blogcontent\images\blog\flags\ly.png" />
+    <Content Include="blogcontent\images\blog\flags\ma.png" />
+    <Content Include="blogcontent\images\blog\flags\mc.png" />
+    <Content Include="blogcontent\images\blog\flags\md.png" />
+    <Content Include="blogcontent\images\blog\flags\me.png" />
+    <Content Include="blogcontent\images\blog\flags\mg.png" />
+    <Content Include="blogcontent\images\blog\flags\mh.png" />
+    <Content Include="blogcontent\images\blog\flags\mk.png" />
+    <Content Include="blogcontent\images\blog\flags\ml.png" />
+    <Content Include="blogcontent\images\blog\flags\mm.png" />
+    <Content Include="blogcontent\images\blog\flags\mn.png" />
+    <Content Include="blogcontent\images\blog\flags\mo.png" />
+    <Content Include="blogcontent\images\blog\flags\mp.png" />
+    <Content Include="blogcontent\images\blog\flags\mq.png" />
+    <Content Include="blogcontent\images\blog\flags\mr.png" />
+    <Content Include="blogcontent\images\blog\flags\ms.png" />
+    <Content Include="blogcontent\images\blog\flags\mt.png" />
+    <Content Include="blogcontent\images\blog\flags\mu.png" />
+    <Content Include="blogcontent\images\blog\flags\mv.png" />
+    <Content Include="blogcontent\images\blog\flags\mw.png" />
+    <Content Include="blogcontent\images\blog\flags\mx.png" />
+    <Content Include="blogcontent\images\blog\flags\my.png" />
+    <Content Include="blogcontent\images\blog\flags\mz.png" />
+    <Content Include="blogcontent\images\blog\flags\na.png" />
+    <Content Include="blogcontent\images\blog\flags\nc.png" />
+    <Content Include="blogcontent\images\blog\flags\ne.png" />
+    <Content Include="blogcontent\images\blog\flags\nf.png" />
+    <Content Include="blogcontent\images\blog\flags\ng.png" />
+    <Content Include="blogcontent\images\blog\flags\ni.png" />
+    <Content Include="blogcontent\images\blog\flags\nl.png" />
+    <Content Include="blogcontent\images\blog\flags\no.png" />
+    <Content Include="blogcontent\images\blog\flags\np.png" />
+    <Content Include="blogcontent\images\blog\flags\nr.png" />
+    <Content Include="blogcontent\images\blog\flags\nu.png" />
+    <Content Include="blogcontent\images\blog\flags\nz.png" />
+    <Content Include="blogcontent\images\blog\flags\om.png" />
+    <Content Include="blogcontent\images\blog\flags\pa.png" />
+    <Content Include="blogcontent\images\blog\flags\pe.png" />
+    <Content Include="blogcontent\images\blog\flags\pf.png" />
+    <Content Include="blogcontent\images\blog\flags\pg.png" />
+    <Content Include="blogcontent\images\blog\flags\ph.png" />
+    <Content Include="blogcontent\images\blog\flags\pk.png" />
+    <Content Include="blogcontent\images\blog\flags\pl.png" />
+    <Content Include="blogcontent\images\blog\flags\pm.png" />
+    <Content Include="blogcontent\images\blog\flags\pn.png" />
+    <Content Include="blogcontent\images\blog\flags\pr.png" />
+    <Content Include="blogcontent\images\blog\flags\ps.png" />
+    <Content Include="blogcontent\images\blog\flags\pt.png" />
+    <Content Include="blogcontent\images\blog\flags\pw.png" />
+    <Content Include="blogcontent\images\blog\flags\py.png" />
+    <Content Include="blogcontent\images\blog\flags\qa.png" />
+    <Content Include="blogcontent\images\blog\flags\re.png" />
+    <Content Include="blogcontent\images\blog\flags\ro.png" />
+    <Content Include="blogcontent\images\blog\flags\rs.png" />
+    <Content Include="blogcontent\images\blog\flags\ru.png" />
+    <Content Include="blogcontent\images\blog\flags\rw.png" />
+    <Content Include="blogcontent\images\blog\flags\sa.png" />
+    <Content Include="blogcontent\images\blog\flags\sb.png" />
+    <Content Include="blogcontent\images\blog\flags\sc.png" />
+    <Content Include="blogcontent\images\blog\flags\sd.png" />
+    <Content Include="blogcontent\images\blog\flags\se.png" />
+    <Content Include="blogcontent\images\blog\flags\sg.png" />
+    <Content Include="blogcontent\images\blog\flags\sh.png" />
+    <Content Include="blogcontent\images\blog\flags\si.png" />
+    <Content Include="blogcontent\images\blog\flags\sj.png" />
+    <Content Include="blogcontent\images\blog\flags\sk.png" />
+    <Content Include="blogcontent\images\blog\flags\sl.png" />
+    <Content Include="blogcontent\images\blog\flags\sm.png" />
+    <Content Include="blogcontent\images\blog\flags\sn.png" />
+    <Content Include="blogcontent\images\blog\flags\so.png" />
+    <Content Include="blogcontent\images\blog\flags\sr.png" />
+    <Content Include="blogcontent\images\blog\flags\st.png" />
+    <Content Include="blogcontent\images\blog\flags\sv.png" />
+    <Content Include="blogcontent\images\blog\flags\sy.png" />
+    <Content Include="blogcontent\images\blog\flags\sz.png" />
+    <Content Include="blogcontent\images\blog\flags\tc.png" />
+    <Content Include="blogcontent\images\blog\flags\td.png" />
+    <Content Include="blogcontent\images\blog\flags\tf.png" />
+    <Content Include="blogcontent\images\blog\flags\tg.png" />
+    <Content Include="blogcontent\images\blog\flags\th.png" />
+    <Content Include="blogcontent\images\blog\flags\tj.png" />
+    <Content Include="blogcontent\images\blog\flags\tk.png" />
+    <Content Include="blogcontent\images\blog\flags\tl.png" />
+    <Content Include="blogcontent\images\blog\flags\tm.png" />
+    <Content Include="blogcontent\images\blog\flags\tn.png" />
+    <Content Include="blogcontent\images\blog\flags\to.png" />
+    <Content Include="blogcontent\images\blog\flags\tr.png" />
+    <Content Include="blogcontent\images\blog\flags\tt.png" />
+    <Content Include="blogcontent\images\blog\flags\tv.png" />
+    <Content Include="blogcontent\images\blog\flags\tw.png" />
+    <Content Include="blogcontent\images\blog\flags\tz.png" />
+    <Content Include="blogcontent\images\blog\flags\ua.png" />
+    <Content Include="blogcontent\images\blog\flags\ug.png" />
+    <Content Include="blogcontent\images\blog\flags\um.png" />
+    <Content Include="blogcontent\images\blog\flags\us.png" />
+    <Content Include="blogcontent\images\blog\flags\uy.png" />
+    <Content Include="blogcontent\images\blog\flags\uz.png" />
+    <Content Include="blogcontent\images\blog\flags\va.png" />
+    <Content Include="blogcontent\images\blog\flags\vc.png" />
+    <Content Include="blogcontent\images\blog\flags\ve.png" />
+    <Content Include="blogcontent\images\blog\flags\vg.png" />
+    <Content Include="blogcontent\images\blog\flags\vi.png" />
+    <Content Include="blogcontent\images\blog\flags\vn.png" />
+    <Content Include="blogcontent\images\blog\flags\vu.png" />
+    <Content Include="blogcontent\images\blog\flags\wf.png" />
+    <Content Include="blogcontent\images\blog\flags\ws.png" />
+    <Content Include="blogcontent\images\blog\flags\ye.png" />
+    <Content Include="blogcontent\images\blog\flags\yt.png" />
+    <Content Include="blogcontent\images\blog\flags\za.png" />
+    <Content Include="blogcontent\images\blog\flags\zm.png" />
+    <Content Include="blogcontent\images\blog\flags\zw.png" />
+    <Content Include="blogcontent\images\blog\icon-left.svg" />
+    <Content Include="blogcontent\images\blog\icon-pass.svg" />
+    <Content Include="blogcontent\images\blog\icon-user.svg" />
+    <Content Include="blogcontent\images\blog\logo-footer.png" />
+    <Content Include="blogcontent\images\blog\logo.png" />
+    <Content Include="blogcontent\images\blog\noavatar.jpg" />
+    <Content Include="blogcontent\images\blog\nothumb.jpg" />
+    <Content Include="blogcontent\images\blog\opml.png" />
+    <Content Include="blogcontent\images\blog\pingback.png" />
+    <Content Include="blogcontent\images\blog\pixel.png" />
+    <Content Include="blogcontent\images\blog\pkg.png" />
+    <Content Include="blogcontent\images\blog\reply-arrow.gif" />
+    <Content Include="blogcontent\images\blog\rssButton.png" />
+    <Content Include="blogcontent\images\blog\selected-nav.png" />
+    <Content Include="blogcontent\images\blog\star_small.gif" />
+    <Content Include="blogcontent\images\blog\Theme.png" />
+    <Content Include="blogcontent\images\blog\Widget.png" />
+    <Content Include="blogcontent\images\blog\wrench84watermark.png" />
+    <Content Include="blogcontent\images\blog\wrenchicon16.png" />
+    <Content Include="blogcontent\images\blog\xfn\colleague.gif" />
+    <Content Include="blogcontent\images\blog\xfn\colleagueMet.gif" />
+    <Content Include="blogcontent\images\blog\xfn\contact.gif" />
+    <Content Include="blogcontent\images\blog\xfn\contactMet.gif" />
+    <Content Include="blogcontent\images\blog\xfn\me.gif" />
+    <Content Include="blogcontent\images\blog\xfn\sweet.gif" />
+    <Content Include="blogcontent\images\blog\xfn\sweetMet.gif" />
+    <None Include="blogcontent\js\jquery-2.1.4.intellisense.js" />
+    <Content Include="blogcontent\js\jquery-2.1.4.js" />
+    <Content Include="blogcontent\js\jquery-2.1.4.min.js" />
+    <Content Include="blogcontent\js\jquery.form.js" />
+    <None Include="blogcontent\js\jquery.validate-vsdoc.js" />
+    <Content Include="blogcontent\js\jquery.validate.js" />
+    <Content Include="blogcontent\js\jquery.validate.min.js" />
+    <Content Include="blogcontent\js\blogcontroller.js" />
+    <Content Include="blogcontent\js\toastr.js" />
+    <Content Include="blogcontent\js\toastr.min.js" />
+    <Content Include="blogcontent\themes\standard\css\styles.css" />
+    <Content Include="blogcontent\themes\standard\img\logo-sidebar.png" />
+    <Content Include="blogcontent\themes\standard\img\profile.png" />
+    <Content Include="blogcontent\tinymce\editor.js" />
+    <Content Include="blogcontent\js\filemanagerController.js" />
+    <Content Include="blogcontent\tinymce\license.txt" />
+    <Content Include="blogcontent\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="blogcontent\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\example\dialog.html" />
+    <Content Include="blogcontent\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\filemanager\filemgr.png" />
+    <Content Include="blogcontent\tinymce\plugins\filemanager\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="blogcontent\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.dev.svg" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.svg" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\langs\en.js" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\langs\fr_FR.js" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\plugin.js" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\style\style.css" />
+    <Content Include="blogcontent\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="blogcontent\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="blogcontent\tinymce\themes\modern\theme.min.js" />
+    <Content Include="blogcontent\tinymce\tinymce.min.js" />
+    <Content Include="Views\blog\filemanager.cshtml" />
+    <Content Include="blogcontent\tinymce\langs\readme.md" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.eot" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.ttf" />
+    <Content Include="blogcontent\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.woff" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="blogcontent\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="blogcontent\themes\standard\css\styles.css.map" />
+    <Content Include="blogcontent\themes\standard\layout.cshtml" />
+    <Content Include="blogcontent\themes\standard\README.md" />
+    <Content Include="blogcontent\themes\standard\scss\base\_base.scss" />
+    <Content Include="blogcontent\themes\standard\scss\base\_mixins.scss" />
+    <Content Include="blogcontent\themes\standard\scss\base\_reset.scss" />
+    <Content Include="blogcontent\themes\standard\scss\base\_utilites.scss" />
+    <Content Include="blogcontent\themes\standard\scss\base\_variables.scss" />
+    <Content Include="blogcontent\themes\standard\scss\layout\_header.scss" />
+    <Content Include="blogcontent\themes\standard\scss\layout\_main.scss" />
+    <Content Include="blogcontent\themes\standard\scss\layout\_sidebar.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_alerts.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_buttons.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_dropdown.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_editors.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_filemanager.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_forms.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_modals.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_pagination.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_panels.scss" />
+    <Content Include="blogcontent\themes\standard\scss\modules\_tables.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\about\_about.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_categories.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_comments.filters.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_comments.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_pages.new.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_pages.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_posts.new.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_posts.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\content\_tags.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\custom\_plugins.gallery.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\custom\_plugins.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\custom\_themes.gallery.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\custom\_themes.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\custom\_widgets.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\dashboard\_dashboard.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\security\_profile.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\security\_roles.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\security\_users.scss" />
+    <Content Include="blogcontent\themes\standard\scss\pages\settings\_settings.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.about.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.bootstrap.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.buttons.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.dashboard.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.dropdown.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.filemanager.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.forms.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.header.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.main.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.modals.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.panels.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.plugins.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.settings.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.sidebar.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.tables.scss" />
+    <Content Include="blogcontent\themes\standard\scss\rtl\_rtl.widgets.scss" />
+    <Content Include="blogcontent\themes\standard\scss\styles.scss" />
+    <Content Include="blogcontent\themes\standard\sidebar.cshtml" />
+    <Content Include="blogcontent\fonts\fontawesome-webfont.eot" />
+    <Content Include="blogcontent\fonts\fontawesome-webfont.ttf" />
+    <Content Include="blogcontent\fonts\fontawesome-webfont.woff" />
+    <Content Include="blogcontent\fonts\fontawesome-webfont.woff2" />
+    <Content Include="blogcontent\fonts\FontAwesome.otf" />
+    <Content Include="blogcontent\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="blogcontent\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="blogcontent\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="blogcontent\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="blogcontent\js\jquery-2.1.4.min.map" />
+    <Content Include="blogcontent\tinymce\editor.cshtml" />
+    <Content Include="Global.asax" />
+    <None Include="bundleconfig.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\errorController.cs" />
+    <Compile Include="Controllers\blogController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppValidation.cs" />
+    <Compile Include="Models\BlogsModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\blog\index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\error\internal-server-error.cshtml" />
+    <Content Include="Views\error\page-not-found.cshtml" />
+    <Content Include="Views\blog\create.cshtml" />
+    <Content Include="Views\Shared\_pvBlogSideBar.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="blogcontent\blogimages\" />
+    <Folder Include="blogcontent\css\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>26909</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25603/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

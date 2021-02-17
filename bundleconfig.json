@@ -1,0 +1,50 @@
+[
+  {
+    "outputFileName": "css/bootstrap.min.min.css",
+    "inputFiles": [
+      "css/bootstrap.min.css"
+    ]
+  },
+  {
+    "outputFileName": "css/reset.min.css",
+    "inputFiles": [
+      "css/reset.css"
+    ]
+  },
+  {
+    "outputFileName": "css/style.min.css",
+    "inputFiles": [
+      "css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "css/menustyles.min.css",
+    "inputFiles": [
+      "css/menustyles.css"
+    ]
+  },
+  {
+    "outputFileName": "css/owl.carousel.min.css",
+    "inputFiles": [
+      "css/owl.carousel.css"
+    ]
+  },
+  {
+    "outputFileName": "css/slider-servicepage.min.css",
+    "inputFiles": [
+      "css/slider-servicepage.css"
+    ]
+  },
+  {
+    "outputFileName": "css/bootstrap.min.css",
+    "inputFiles": [
+      "css/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "css/homesliderstyle.min.css",
+    "inputFiles": [
+      "css/homesliderstyle.css"
+    ]
+  }
+]

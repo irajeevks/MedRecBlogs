@@ -1,0 +1,34 @@
+﻿@{
+    var name = "MedRec Blog Admin";
+    var src = "/blogcontent/images/blog/noavatar.jpg";
+    var displayName = "Administrator";
+
+    var profile = "Admin";
+}
+<div class="nav-user">
+    <div class="nav-user-info">
+        <div class="nav-user-img"><img src="@src" /></div>
+        <div class="nav-user-name text-ellipsis">@displayName</div>
+    </div>
+    <ul class="nav-user-actions clearfix">
+        <li title="Log off"><a href="#"><i class="fa fa-power-off"></i></a></li>
+        @*<li title="@Resources.labels.changePassword"><a href="{{SiteVars.RelativeWebRoot}}Account/change-password.aspx" target="_blank"><i class="fa fa-key"></i></a></li>
+        <li title="@Resources.labels.profile"><a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><i class="fa fa-user"></i></a></li>
+        <li title="@Resources.labels.viewMyBlog"><a href="{{SiteVars.RelativeWebRoot}}" target="_blank"><i class="fa fa-globe"></i></a></li>*@
+    </ul>
+</div>
+<div class="nav-sidebar">
+    <ul data-ng-controller="NavController">
+        <li id="mu-dashboard" class="active"><a href="#"><i class="fa fa-th-large"></i> Dashboard</a></li>
+        <li id="mu-content">
+            <a href="#"><i class="fa fa-align-justify"></i> Blogs</a>
+            <ul class="sub-nav-sidebar">
+                <li id="mu-posts"><a href="/blog/create">New</a></li>
+                <li id="mu-posts"><a href="/blog/create">List</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="logo-sidebar">
+    <a href="#" target="_blank" title="MedRec Blogs"><img src="~/blogcontent/themes/standard/img/logo-sidebar.png" alt="MedRec Technologies" /></a>
+</div>

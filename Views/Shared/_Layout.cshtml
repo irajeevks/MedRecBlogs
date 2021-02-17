@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Medrec Blogs</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" />
+    <link href="~/blogcontent/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/blogcontent/css/toastr.css" rel="stylesheet" />
+    <link href="~/blogcontent/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/blogcontent/css/star-rating.css" rel="stylesheet" />
+    <link href="~/blogcontent/themes/standard/css/styles.css?ver=4" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="~/assets/favicon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="main-sidebar">
+            @RenderPage("_pvBlogSideBar.cshtml")
+        </div>
+        <div class="main-content">
+            @RenderBody()
+        </div>
+        <div class="main-overlay"></div>
+    </div>
+    <script>
+        $(".sidebar-toggle").click(function () {
+            $(".main-wrapper").toggleClass("sidebar-open");
+        });
+        $(".main-overlay").click(function () {
+            $(".main-wrapper").removeClass("sidebar-open");
+        });
+
+        $(".sub-nav-sidebar li").click(function () {
+            $(".main-wrapper").removeClass("sidebar-open");
+        });
+
+        $(window).resize(function () {
+            if ($(window).width() > 1025) {
+                $(".main-wrapper").removeClass("sidebar-open");
+            }
+        });
+
+    </script>
+</body>
+</html>
