@@ -28,6 +28,11 @@
                 $("#btnSubmitBlog").attr("disabled", false);
                 $("#btnSubmitBlog").add("disabled", "");
             }
+            else {
+
+               
+               
+            }
             $("#btnSubmitBlog").attr("disabled", false);
         }
     });

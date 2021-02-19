@@ -1,4 +1,5 @@
-﻿using MedrecTechnologies.Blog.Models;
+﻿using MedrecTechnologies.Blog.Global;
+using MedrecTechnologies.Blog.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,6 +14,7 @@ namespace MedrecTechnologies.Blog.Controllers
     {
         // GET: KPO BPO
         [OutputCache(Duration = 86400, VaryByParam = "none")]
+
         public ActionResult Index()
         {
             return View();
@@ -33,6 +35,8 @@ namespace MedrecTechnologies.Blog.Controllers
             BlogsModelResponse responseModel = new BlogsModelResponse();
             responseModel.Status = 0;
             responseModel.Message = "";
+            var smallImagePath = new ImageFileViewModel();
+            var bigImagePath = new ImageFileViewModel();
 
             #region Validation
             if (Request.Files.Count > 0)
@@ -78,42 +82,56 @@ namespace MedrecTechnologies.Blog.Controllers
                 fileExtension = Path.GetExtension(blogsModel.BigFile.FileName);
                 if (Array.IndexOf(FileValidExtensions(), fileExtension) < 0)
                 {
+                   
                     responseModel.Message += String.Join(",", FileValidExtensions()) + " are supported only for Full Banner" + "<br>";
                 }
+
+
             }
             #endregion
 
-            #region Save
+            #region Save 
             if (flag)
             {
                 try
                 {
+                    if (blogsModel.SmallFile != null && blogsModel.BigFile != null)
+                    {
+                        string _path = Path.Combine(Server.MapPath("~/Image"));
+                        smallImagePath = UploadImagefile.uploadfile(blogsModel.SmallFile, _path, "Image");
+                        bigImagePath = UploadImagefile.uploadfile(blogsModel.BigFile, _path, "Image");
+                    }
+
+                    var newBlogId = Guid.NewGuid();
                     using (SqlConnection con = new SqlConnection(AppValidation.ConnectionString))
                     {
                         SqlCommand sqlCommand = new SqlCommand();
                         sqlCommand.CommandText = "spiu_blog";
+                        sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
                         sqlCommand.Connection = con;
                         sqlCommand.Parameters.Add(new SqlParameter("@exectype", executeFlag));
-                        sqlCommand.Parameters.Add(new SqlParameter("@blogid", new Guid().ToString()));
+                        sqlCommand.Parameters.Add(new SqlParameter("@blogid", newBlogId));
                         sqlCommand.Parameters.Add(new SqlParameter("@blogtitle", blogsModel.BlogTitle));
                         sqlCommand.Parameters.Add(new SqlParameter("@shortdesc", blogsModel.BlogShortDescription));
                         sqlCommand.Parameters.Add(new SqlParameter("@fulldesc", blogsModel.BlogFullDescription));
-                        sqlCommand.Parameters.Add(new SqlParameter("@smallbanner", "Some path1"));
-                        sqlCommand.Parameters.Add(new SqlParameter("@fullbanner", "Some Path 2"));
+                        sqlCommand.Parameters.Add(new SqlParameter("@smallbanner", smallImagePath.ImagePath));
+                        sqlCommand.Parameters.Add(new SqlParameter("@fullbanner", bigImagePath.ImagePath));
                         sqlCommand.Parameters.Add(new SqlParameter("@datecreated", currentDateTime));
                         sqlCommand.Parameters.Add(new SqlParameter("@dateupdated", currentDateTime));
                         sqlCommand.Parameters.Add(new SqlParameter("@publishdate", blogsModel.PublishDate));
                         sqlCommand.Parameters.Add(new SqlParameter("@ispublished", blogsModel.IsPublished));
-                        sqlCommand.Parameters.Add(new SqlParameter("metatitle", blogsModel.BlogMetaTitle));
-                        sqlCommand.Parameters.Add(new SqlParameter("metakeywords", blogsModel.BlogMetaKeywords));
-                        sqlCommand.Parameters.Add(new SqlParameter("metadescription", blogsModel.BlogMetaDescription));
+                        sqlCommand.Parameters.Add(new SqlParameter("@metatitle", blogsModel.BlogMetaTitle));
+                        sqlCommand.Parameters.Add(new SqlParameter("@metakeywords", blogsModel.BlogMetaKeywords));
+                        sqlCommand.Parameters.Add(new SqlParameter("@metadescription", blogsModel.BlogMetaDescription));
 
                         con.Open();
                         sqlCommand.ExecuteNonQuery();
                         con.Close();
+                        responseModel.Status = 1;
+                        responseModel.Message += "Record has been saved successfully.";
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     responseModel.Message += "There is come technical problem in saving blog. Please contact support.";
                 }

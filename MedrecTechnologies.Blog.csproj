@@ -597,8 +597,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Global\UploadImagefile.cs" />
     <Compile Include="Models\AppValidation.cs" />
     <Compile Include="Models\BlogsModel.cs" />
+    <Compile Include="Models\ImageFileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -626,6 +628,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="blogcontent\blogimages\" />
     <Folder Include="blogcontent\css\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
