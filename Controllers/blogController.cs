@@ -2,6 +2,7 @@
 using MedrecTechnologies.Blog.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -26,12 +27,14 @@ namespace MedrecTechnologies.Blog.Controllers
         }
         [ActionName("save")]
         [HttpPost, ValidateInput(false)]
-        public ActionResult save(BlogsModel blogsModel, FormCollection formCollection)
+        public ActionResult save(BlogsModel blogsModel)
         {
             bool flag = true;
             Int32 executeFlag = 1;
             DateTime currentDateTime = DateTime.Now;
-            String fileExtension = String.Empty;
+            String fileExtension = String.Empty, baseDirectoryPath = ConfigurationManager.AppSettings["BaseDirectoryPath"].ToString(),
+                smallImageFolder = Path.Combine("blogcontent", "thumbnail"), bigImageFolder = Path.Combine("blogcontent", "banner"),
+                smallFileName = String.Empty, bigFileName = String.Empty;
             BlogsModelResponse responseModel = new BlogsModelResponse();
             responseModel.Status = 0;
             responseModel.Message = "";
@@ -82,7 +85,7 @@ namespace MedrecTechnologies.Blog.Controllers
                 fileExtension = Path.GetExtension(blogsModel.BigFile.FileName);
                 if (Array.IndexOf(FileValidExtensions(), fileExtension) < 0)
                 {
-                   
+
                     responseModel.Message += String.Join(",", FileValidExtensions()) + " are supported only for Full Banner" + "<br>";
                 }
 
@@ -95,11 +98,13 @@ namespace MedrecTechnologies.Blog.Controllers
             {
                 try
                 {
-                    if (blogsModel.SmallFile != null && blogsModel.BigFile != null)
+                    if (blogsModel.SmallFile != null)
                     {
-                        string _path = Path.Combine(Server.MapPath("~/Image"));
-                        smallImagePath = UploadImagefile.uploadfile(blogsModel.SmallFile, _path, "Image");
-                        bigImagePath = UploadImagefile.uploadfile(blogsModel.BigFile, _path, "Image");
+                        smallFileName = Guid.NewGuid().ToString() + ".png";
+                    }
+                    if (blogsModel.BigFile != null)
+                    {
+                        bigFileName = Guid.NewGuid().ToString() + ".png";
                     }
 
                     var newBlogId = Guid.NewGuid();
@@ -114,8 +119,8 @@ namespace MedrecTechnologies.Blog.Controllers
                         sqlCommand.Parameters.Add(new SqlParameter("@blogtitle", blogsModel.BlogTitle));
                         sqlCommand.Parameters.Add(new SqlParameter("@shortdesc", blogsModel.BlogShortDescription));
                         sqlCommand.Parameters.Add(new SqlParameter("@fulldesc", blogsModel.BlogFullDescription));
-                        sqlCommand.Parameters.Add(new SqlParameter("@smallbanner", smallImagePath.ImagePath));
-                        sqlCommand.Parameters.Add(new SqlParameter("@fullbanner", bigImagePath.ImagePath));
+                        sqlCommand.Parameters.Add(new SqlParameter("@smallbanner", smallFileName));
+                        sqlCommand.Parameters.Add(new SqlParameter("@fullbanner", bigFileName));
                         sqlCommand.Parameters.Add(new SqlParameter("@datecreated", currentDateTime));
                         sqlCommand.Parameters.Add(new SqlParameter("@dateupdated", currentDateTime));
                         sqlCommand.Parameters.Add(new SqlParameter("@publishdate", blogsModel.PublishDate));
@@ -127,8 +132,18 @@ namespace MedrecTechnologies.Blog.Controllers
                         con.Open();
                         sqlCommand.ExecuteNonQuery();
                         con.Close();
-                        responseModel.Status = 1;
-                        responseModel.Message += "Record has been saved successfully.";
+                    }
+
+                    responseModel.Status = 1;
+                    responseModel.Message += "Record has been saved successfully.";
+
+                    if (blogsModel.SmallFile != null)
+                    {
+                        Utility.SaveByteToFile(blogsModel.SmallFile, smallImageFolder, smallFileName, ".png", baseDirectoryPath);
+                    }
+                    if (blogsModel.SmallFile != null && blogsModel.BigFile != null)
+                    {
+                        Utility.SaveByteToFile(blogsModel.BigFile, bigImageFolder, bigFileName, ".png", baseDirectoryPath);
                     }
                 }
                 catch (Exception ex)
