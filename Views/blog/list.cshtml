@@ -1,0 +1,41 @@
+﻿@model List<MedrecTechnologies.Blog.Models.BlogsModel>
+
+<div class="content">
+    <div class="content-pages-new-view">
+        <div class="content-inner">
+            <div class="table-responsive">
+                <table class="table table-item-post">
+                    <thead>
+                        <tr>
+                            <th class="item-checkbox"><input type="checkbox" id="chk_selectall" name="chk_selectall" onchange="selectAll(this)" />
+                            <th class="item-title">Title</th>
+                            <th class="item-date">Publish Date</th>
+                            <th class="item-status">Is Published</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var blog in Model)
+                            {
+                                <tr>
+                                    <td class="item-checkbox"><input type="checkbox" class="itemcheckbox" id="@blog.BlogId" name="@blog.BlogId" onchange="onItemSelect(this)" title="Select to delete multiple" /></td>
+                                    <td class="item-title">
+                                        <a title="click to edit" href="/blog/edit?id=@blog.BlogId">@blog.BlogTitle</a>
+                                        <a title="click to view" class="external-link" target="_blank" href="#"><i class="fa fa-external-link"></i></a>
+                                    </td>
+                                    <td class="item-date" title="@blog.PublishDate">@String.Format("{0:dd-MMM-yyyy}", @blog.PublishDate)</td>
+                                    <td class="item-status">@Html.CheckBoxFor(modelItem => blog.IsPublished)</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/blogcontent/js/jquery-2.1.4.js"></script>
+<script src="~/blogcontent/js/jquery.validate.js"></script>
+<script src="~/blogcontent/js/jquery.form.js"></script>
+<script src="~/blogcontent/js/jquery.form.js"></script>
+<script type="text/javascript" src="~/blogcontent/js/jquery.dataTables.min.js"></script>

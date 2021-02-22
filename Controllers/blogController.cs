@@ -23,7 +23,12 @@ namespace MedrecTechnologies.Blog.Controllers
         [ActionName("create")]
         public ActionResult create()
         {
-            return View();
+            BlogsModel blogsModel = new BlogsModel()
+            {
+                IsPublished = true,
+                PublishDate = DateTime.Now
+            };
+            return View(blogsModel);
         }
         [ActionName("save")]
         [HttpPost, ValidateInput(false)]
@@ -169,6 +174,13 @@ namespace MedrecTechnologies.Blog.Controllers
             fileExtensions[2] = ".png";
 
             return fileExtensions;
+        }
+        [ActionName("list")]
+        public ActionResult list()
+        {
+            List<BlogsModel> blogsModels = new List<BlogsModel>();
+            
+            return View(blogsModels);
         }
     }
 }

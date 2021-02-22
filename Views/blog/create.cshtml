@@ -47,19 +47,19 @@
                             @Html.LabelFor(u => u.BlogMetaDescription, new { @class = "newpage-widget-title" })
                             @Html.TextAreaFor(u => u.BlogMetaDescription, new { @class = "form-control form-control-sm", maxlength = "300", rows = "5" })
                         </div>
-                        <div class="newpage-widget">
-                            @Html.LabelFor(u => u.PublishDate, new { @class = "newpage-widget-title" })
-                            @Html.TextBoxFor(u => u.PublishDate, new { @class = "form-control form-control-sm", @type = "date" })
-                        </div>
-                        <div class="newpage-widget">
-                            @Html.LabelFor(u => u.IsPublished, new { @class = "newpage-widget-title" })
-                            @Html.CheckBoxFor(u => u.IsPublished, new { @class = "form-control form-control-sm" })
-                        </div>
                     </div>
                     <div class="newpage-sidebar">
                         <div class="newpage-sidebar-content">
                             <div class="newpage-sidebar-buttons">
                                 <input type="submit" id="btnSubmitBlog" class="btn btn-sm btn-block btn-success" value="Submit" />
+                            </div>
+                            <div class="newpage-sidebar-buttons">
+                                @Html.LabelFor(u => u.IsPublished, new { @class = "newpage-widget-title" })
+                                @Html.CheckBoxFor(u => u.IsPublished, new { @class = "" })
+                            </div>
+                            <div class="newpage-sidebar-buttons">
+                                @Html.LabelFor(u => u.PublishDate, new { @class = "newpage-widget-title" })
+                                @Html.TextBoxFor(u => u.PublishDate, new { @class = "form-control form-control-sm", @type = "date", @Value = Model.PublishDate.ToString("yyyy-MM-dd") })
                             </div>
                         </div>
                     </div>

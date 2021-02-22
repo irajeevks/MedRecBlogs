@@ -640,6 +640,7 @@
     <Content Include="Views\error\page-not-found.cshtml" />
     <Content Include="Views\blog\create.cshtml" />
     <Content Include="Views\Shared\_pvBlogSideBar.cshtml" />
+    <Content Include="Views\blog\list.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

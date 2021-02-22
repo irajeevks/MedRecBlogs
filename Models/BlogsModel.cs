@@ -10,6 +10,9 @@ namespace MedrecTechnologies.Blog.Models
     [Serializable]
     public class BlogsModel
     {
+        [Display(Name = "BlogId")]
+        public string BlogId { get; set; }
+
         [Required]
         [Display(Name = "Title"), MaxLength(100)]
         public string BlogTitle { get; set; }
@@ -19,7 +22,7 @@ namespace MedrecTechnologies.Blog.Models
         public string BlogShortDescription { get; set; }
 
         [Required]
-        [Display(Name = "Full Description"), MaxLength(200)]
+        [Display(Name = "Full Description")]
         [AllowHtml]
         public string BlogFullDescription { get; set; }
 
